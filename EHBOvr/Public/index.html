@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <script src="js/aframe.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="jquery-3.2.1.min.js"></script>
+    <!-- <script src="js/constructor.js"></script> -->
+    <title>sandbox</title>
+  </head>
+  <body>
+    <a-scene id="scene">
+      <a-entity position="0 1.8 5">
+        <a-entity
+            id="camera"
+            camera
+            look-controls
+            rotation="0 0 0"
+            wasd-controls>          
+
+            <!-- MAIN CURSOR -->
+            <a-entity
+                cursor="fuse: true; maxDistance: 500; timeout: 3000;"
+                id="cursor-main"
+                position="0 0 -2"
+                geometry="primitive: ring; radiusOuter: 0.06; radiusInner: 0.03; thetaLength: 360; thetaStart: 90;"
+                material="color: #439DC2;"
+                >
+                <a-animation begin="cursor-fusing" attribute="geometry.thetaLength" fill="forwards" from="360" to="0" easing="ease-in"></a-animation>
+                <a-animation begin="mouseleave" attribute="geometry.thetaLength" fill="backwards" from="0" to="360" dur="0"></a-animation>
+            </a-entity>
+            <a-entity
+                id="cursor-loader"
+                position="0 0 -2.0001"
+                geometry="primitive: ring; radiusOuter: 0.06; radiusInner: 0.03;"
+                material="color: #000000;"
+                >
+            </a-entity>
+        </a-entity>
+      </a-entity>
+
+     <a-assets>
+        <a-asset-item id="schaarobj" src="obj/schaar.obj"></a-asset-item>
+        <a-asset-item id="schaarmtl" src="obj/schaar.mtl"></a-asset-item>
+      </a-assets> 
+      <a-assets>
+        <a-asset-item id="tapeobj" src="obj/tape.obj"></a-asset-item>
+        <a-asset-item id="tapemtl" src="obj/tape.mtl"></a-asset-item>
+      </a-assets> 
+      <a-sphere id="bol" position="0 4 -5" radius="1" color="#FF0000"></a-sphere>
+      <a-sphere id="bol2" position="-5 2 -3" radius="1" color="#716lef"></a-sphere>
+      <a-sphere id="bol3" position="5 6 -8" radius="1" color="#8eff46"></a-sphere>
+      <a-sphere id="bol4" position="8 6 -8" radius="1" color="#ff6be1"></a-sphere>
+      <!-- Kamer -->
+      <a-plane id="plane1" position="0 -2 0" rotation="-90 0 0" width="32" height="24" color="#7BC8A4"></a-plane>
+      <a-plane id="plane2" position="1 2 -10" rotation ="0 0 0" width="32" height="10" color="#7BC8A4"></a-plane>
+
+      <a-box id="tafelblad" color="#b4b9ba" position="0 0 -3" height="0.3" width="9" depth="4"></a-box>
+
+      <a-entity id="schaar" position="7 1 1" rotate="0 0 0" obj-model="obj:#schaarobj; mtl:#schaarmtl"></a-entity> 
+      <a-entity id="tape" position="7 2 1" scale="0.1 0.1 0.1 " rotate="0 0 0" obj-model="obj:#tapeobj; mtl:#tapemtl"></a-entity> 
+      <!--poten-->
+      <a-box id="pootlinksvoor" color="#876b4a" position="-4.25 -0.9 -1.25" height="1.5" width="0.5" depth="0.5"></a-box>
+      <a-box id="pootlinksachter" color="#876b4a" position="-4.25 -0.9 -4.75" height="1.5" width="0.5" depth="0.5"></a-box>
+      <a-box id="pootrechtsachter" color="#876b4a" position="4.25 -0.9 -4.75" height="1.5" width="0.5" depth="0.5"></a-box>
+      <a-box id="pootrechtsvoor" color="#876b4a" position="4.25 -0.9 -1.25" height="1.5" width="0.5" depth="0.5"></a-box>
+      <!-- 
+      <a-box position="-1 0.5 -3"  color="#808080" height="0.1" width="1"> </a-box>
+      <a-box position="-1 1 -3.5"  color="#808080" height="1" width="0.1" rotation="0 90 -25"> </a-box>
+      <a-box position="-1 0.51 -2.9"  color="#000000" height="0.1" width="0.7" depth="0.5" event-set__enter="_event: mouseenter; color: #8FF7FF" event-set__leave="_event: mouseleave; color: #8FF7FF"> </a-box>
+      <a-box position="-1 1 -3.5"  color="#000000" height="0.7" width="0.1" depth="0.8" rotation="0 90 -25"></a-box>
+      
+      <a-cylinder position="-0.6 0.51 -3.2" radius="0.01" height="0.1" color="#000000"></a-cylinder> 
+    -->
+      <a-sky src="#ECECEC"> </a-sky>
+
+    </a-scene>
+  </body>
+</html> 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Aframe inladen -->
+  <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+  <!-- Jquery inladen -->
+  <script src="jquery-3.2.1.min.js"></script>
+  <script src="main.js"></script>
+   <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v1.4.1/dist/aframe-physics-system.min.js"></script>
+  <title>API VR</title>
+</head>
+<body>
+  <!-- Start Aframe scene -->
+   <a-scene id= "scene" physics="debug: true">
+     <a-assets>
+       <img id="sky" src="sky.png">
+       <img id="tf" src="tf.png">
+     </a-assets>
+       <a-sky src = "#sky"></a-sky>
+       <a-image id="tf1" src="#tf" position="0.4 1.8 -3">
+         <a-animation attribute="position" dur="10000" to="4 1.8 40"></a-animation>
+         <a-animation attribute="rotation" dur="6000" to="0 0 100"></a-animation>
+       </a-image>
+       <a-sphere id="sphere1" position="5 6 -5" heigh="1"></a-sphere>
+       <a-box id="knop1" position="5 2 -5" static-body></a-box>
+       <a-sphere id="sphere2" position="-5 6 -5" height="1"></a-sphere>
+       <a-box id="knop2" position="-5 2 -5" static-body></a-box>
+     <a-camera>
+      <a-cursor color="white"></a-cursor>
+    </a-camera>
+   </a-scene>
+</body>
+</html>
